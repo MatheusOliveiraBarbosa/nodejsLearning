@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const productRoutes = require('./api/routes/products');
 const ordersRoutes = require('./api/routes/orders');
 const indexRoute = require('./api/routes/index');
+const userRoutes = require('./api/routes/user');
 
 mongoose.connect('mongodb+srv://admin:'+ process.env.MONGO_ATLAS_PW +'@clusternode-nf9d5.mongodb.net/test?retryWrites=true', {
     useNewUrlParser:true
@@ -33,6 +34,7 @@ app.use((req, res, next) =>{
 //Routes which should handle request
 app.use('/products', productRoutes);
 app.use('/orders', ordersRoutes);
+app.use('/user', userRoutes);
 app.use('/', indexRoute);
 app.use('/index', indexRoute);
 app.use('/index.html', indexRoute);
